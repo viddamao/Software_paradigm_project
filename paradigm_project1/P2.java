@@ -40,7 +40,11 @@ public class P2 {
 		for (int i = 0; i < data.length; i++) {  
 			data[i] = (int) Math.round(Math.random()*10000);
 		}  
+
+		long startTime = System.nanoTime();
 		quicksort(data);
+		long endTime = System.nanoTime();
+		long time = endTime - startTime;
 
 		for (int i = 0; i < data.length; i++) {  
 			System.out.print(data[i] + " ");  
@@ -48,6 +52,11 @@ public class P2 {
 				System.out.println();
 			}
 		}  
+		
+		System.out.println("========================================");
+		System.out.println("start time in ns:"+startTime);
+		System.out.println("end time in ns:"+endTime);
+		System.out.println("Elapsed time in ns:"+time);
 
 	}
 }

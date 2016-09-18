@@ -30,14 +30,23 @@ public class P1 {
 		for (int i = 0; i < data.length; i++) {  
 			data[i] = (int) Math.round(Math.random()*10000);
 		}  
-		quicksort(data,0,data.length - 1);
 
+		long startTime = System.nanoTime();
+		quicksort(data,0,data.length - 1);
+		long endTime = System.nanoTime();
+		long time = endTime - startTime;
+		
 		for (int i = 0; i < data.length; i++) {  
 			System.out.print(data[i] + " ");  
 			if (i % 10 == 9){
 				System.out.println();
 			}
 		}  
+
+		System.out.println("========================================");
+		System.out.println("start time in ns:"+startTime);
+		System.out.println("end time in ns:"+endTime);
+		System.out.println("Elapsed time in ns:"+time);
 	}
 }
 
