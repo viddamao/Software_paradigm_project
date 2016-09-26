@@ -1,6 +1,9 @@
 /**
  * Created by yichenzhou on 9/26/16.
  */
+
+package paradigm_project2;
+
 import java.util.Iterator;
 
 public class LinkedList<Item> implements Iterable<Item> {
@@ -34,7 +37,7 @@ public class LinkedList<Item> implements Iterable<Item> {
         Item name = first.name;
         Item age = first.age;
         first = first.next;
-        count--;
+        //count--;
         String[] contents = new String[2];
         contents[0] = name.toString();
         contents[1] = age.toString();

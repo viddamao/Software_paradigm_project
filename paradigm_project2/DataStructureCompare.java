@@ -1,6 +1,7 @@
-/**
+/*
  * Created by yichenzhou on 9/26/16.
  */
+package paradigm_project2;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -13,9 +14,11 @@ public class DataStructureCompare {
     }
 
     public static int AgeFromLinkedList(String name, LinkedList<String> linkedList) {
-        for (int i = 0; i < linkedList.size(); i++) {
+        //System.out.println(linkedList.size());
+    	for (int i = 0; i < linkedList.size(); i++) {
             String[] contents = linkedList.pop();
-            if (contents[0].toString() == name) {
+            //System.out.println(contents[0].toString());
+            if (contents[0].toString().equals(name)) {
                 System.out.println("Linked List: \n" + name + "'s age is " + contents[1]);
                 return Integer.parseInt(contents[1]);
             }
@@ -52,8 +55,10 @@ public class DataStructureCompare {
 
             // Create LinkedList with names and ages
             LinkedList linkedList = new LinkedList();
+            
             for (int j = 0; j < names.length; j++) {
-                linkedList.push(names[j], ages[j]);
+            	linkedList.push(names[j], ages[j]);
+            	//System.out.println(names[j]+" "+ages[j]);
             }
 
             long linkedListBeginTime = System.nanoTime();
@@ -61,7 +66,7 @@ public class DataStructureCompare {
             long linkedListEndTime = System.nanoTime();
             long linkedListTime = linkedListEndTime - linkedListBeginTime;
             //System.out.println(linkedListTime);
-
+            System.out.println();
             totalHash += hashTime;
             totalLinkedList += linkedListTime;
         }
