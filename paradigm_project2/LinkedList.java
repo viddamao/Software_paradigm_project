@@ -1,9 +1,6 @@
 /**
  * Created by yichenzhou on 9/26/16.
  */
-
-package paradigm_project2;
-
 import java.util.Iterator;
 
 public class LinkedList<Item> implements Iterable<Item> {
