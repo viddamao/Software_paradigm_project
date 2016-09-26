@@ -44,6 +44,7 @@ public class P1 {
 		}  
 
 		System.out.println("========================================");
+		System.out.println("Program P1");
 		System.out.println("start time in ns:"+startTime);
 		System.out.println("end time in ns:"+endTime);
 		System.out.println("Elapsed time in ns:"+time);
