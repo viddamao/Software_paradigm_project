@@ -1,6 +1,8 @@
 /**
  * Created by yichenzhou on 9/26/16.
  */
+package paradigm_project2;
+
 
 import java.util.HashMap;
 import java.util.Random;

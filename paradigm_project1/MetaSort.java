@@ -2,7 +2,7 @@
  * Created by Yichen Zhou on 9/16/16.
  */
 
-package com.yichen.zhou;
+package paradigm_project1;
 
 public class MetaSort {
     /***

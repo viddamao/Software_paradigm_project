@@ -1,4 +1,4 @@
-package com.yichen.zhou;
+package paradigm_project3;
 
 /**
  * Created by yichenzhou on 9/28/16.
@@ -26,6 +26,9 @@ public class TestClass {
         }
         System.out.println("Test for toString(): " + queue.toString());
         System.out.println("Test for hashCode(): " + queue.hashCode());
+        int[] arr=new int[3];
+        System.out.println(arr.toString());
     }
+
 
 }

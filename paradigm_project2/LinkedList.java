@@ -1,8 +1,10 @@
 /**
  * Created by yichenzhou on 9/26/16.
  */
-import java.util.Iterator;
 
+package paradigm_project2;
+
+import java.util.Iterator;
 public class LinkedList<Item> implements Iterable<Item> {
     private Node first;
     private int count;

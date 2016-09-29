@@ -1,16 +1,17 @@
 /**
- * Created by yichenzhou on 9/28/16.
+ * Created by yichenzhou on 9/28/16.	
  */
 
-package com.yichen.zhou;
+package paradigm_project3;
 
 import java.util.Objects;
 
 public class PriorityQueue {
     public int count;
+    private int highest;
     private Node first;
     private Node last;
-
+    
     public class Node {
         protected String name;
         protected Integer priority;
@@ -112,7 +113,13 @@ public class PriorityQueue {
         return copy;
     }
     public String toString() {
-        return getClass().getName();
+    	String str="{";
+    	Node indexNode = first;
+        for (Node n = first; n != null; n = n.next) {
+        	str+="{Name:" + n.name + ", "
+                    + "Priority:" + n.priority+"},";
+        }
+    	return str.substring(0, str.length()-1)+"}";
     }
 
     public int hashCode() {
