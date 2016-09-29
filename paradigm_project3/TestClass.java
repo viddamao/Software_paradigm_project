@@ -17,8 +17,9 @@ public class TestClass {
 
         System.out.println("Dequeued: The highest priority: " + dequeuedNode.priority + "; Node's name: " + dequeuedNode.name);
         System.out.println(queue.count + " elements left in Queue.");
-
         PriorityQueue copy = queue.clone();
+
+        System.out.println("Test for clone(): " + copy.toString());
         if (queue.equals(copy)) {
             System.out.println("Test for equal() and clone() succeed.");
         } else {
@@ -26,8 +27,7 @@ public class TestClass {
         }
         System.out.println("Test for toString(): " + queue.toString());
         System.out.println("Test for hashCode(): " + queue.hashCode());
-        int[] arr=new int[3];
-        System.out.println(arr.toString());
+        
     }
 
 
