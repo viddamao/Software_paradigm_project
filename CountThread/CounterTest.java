@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class CounterTest {
 	
@@ -20,6 +21,7 @@ public class CounterTest {
 				int count=counter.getCount();
 				countThread.stop();
 				System.out.println("\nThe counter is: " + count + " when you exit.");
+				System.exit(0);
 			}
 		}
 				
