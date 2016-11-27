@@ -7,11 +7,11 @@ import java.util.Scanner;
 /**
  * Created by yichenzhou on 11/19/16.
  */
-public class KColoringProblem {
+public class KColoringGreedy {
     private int numOfColor;    // The number of color: 0 as the first type of color, take -1 as no color
     private int[] colored;     // The array contains types of color for each vertex in graph
 
-    public KColoringProblem(Graph graph, int numOfColor) {
+    public KColoringGreedy(Graph graph, int numOfColor) {
         this.numOfColor = numOfColor;
         this.colored = new int[graph.getNumOfVertex()];
         // Initiate each vertex's color as -1, no color
@@ -35,7 +35,7 @@ public class KColoringProblem {
     /***
      *  To color vertex in the graph in the recursive way
      */
-    private boolean toColor(Graph graph, int vertex) {
+    public boolean toColor(Graph graph, int vertex) {
         if (vertex == graph.getNumOfVertex()) {
             return true;
         }
@@ -54,45 +54,18 @@ public class KColoringProblem {
         return false;
     }
 
-    /***
-     *  Get Boolean Expression for vertex
-     */
-    private void getExpression(Graph graph) {
-        System.out.println("SAT Expression:");
-        for (int i = 0; i < numOfColor; i++) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-
-        for (int i = 0; i < graph.getNumOfVertex(); i++) {
-            for (int j = 0; j < numOfColor; j++) {
-                if (j == colored[i]) {
-                    System.out.print("T ");
-                } else {
-                    System.out.print("F ");
-                }
-            }
-            System.out.println();
-        }
-    }
 
     /***
      *  To determine if there exist the solution with number of colors
      */
-    public boolean getResult(Graph graph) {
+    public void getResult(Graph graph) {
         if (!toColor(graph, 0)) {
-            System.out.println("Solution with " + numOfColor + " color does not exist.");
-            return false;
+            System.out.println("Solution does not exist.");
         } else {
-            System.out.println();
-            System.out.println("Solution with " + numOfColor + " color does exist.");
-            System.out.println();
+            System.out.println("Solution exist.");
             for (int i = 0; i < colored.length; i++) {
                 System.out.println("Vertex " + i + "'s color: " + colored[i]);
             }
-            System.out.println();
-            getExpression(graph);
-            return true;
         }
     }
 
@@ -114,7 +87,7 @@ public class KColoringProblem {
         System.out.println("Type the number of color:");
         int numOfColor = scanner.nextInt();
 
-        KColoringProblem kcp = new KColoringProblem(graph, numOfColor);
+        KColoringGreedy kcp = new KColoringGreedy(graph, numOfColor);
         kcp.getResult(graph);
     }
 }

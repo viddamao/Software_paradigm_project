@@ -37,4 +37,18 @@ public class Graph {
         return adj[v];
     }
 
+    public Iterable<Integer> adjL(int v) {
+        MinPQ<Integer> minPQ = new MinPQ<Integer>();
+        for (int w: adj(v)) {
+            minPQ.insert(w);
+        }
+
+        Bag<Integer> bag = new Bag<Integer>();
+        for (int i = 0; i < adj[v].size(); i++) {
+            bag.add(minPQ.delMin());
+        }
+
+        return bag;
+    }
+
 }
