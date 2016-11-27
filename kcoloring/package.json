@@ -1,0 +1,13 @@
+{
+  "name": "k_coloring",
+  "version": "1.0.0",
+  "description": "k_coloring demo",
+  "main": "greedy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vidda",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}

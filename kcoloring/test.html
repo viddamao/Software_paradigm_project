@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>K coloring</title>
+		<style>
+		body{
+			background-color: black;
+		}
+		#app p{
+			color:white;
+			text-align: center;
+			font-size: 40;
+			font-weight: bolder;
+		}
+		#container {
+		   background-color: rgba(255,255,255,0.6);
+ 		   max-width: 700px;
+ 		   height: 700px;
+ 		   margin: auto;
+  		}
+		button{
+			margin: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p>Visualization for k coloring</p>
+			<div id="container"></div>
+			<div style="text-align: center;color:white;">
+				<p>Current Node: {{current_index}}
+				<span style="margin-left:20px;">   Neighbors: 
+				<span v-for="neighbor in nodes[current_index].neighbors">{{neighbor}} </span></span>
+				<span style="margin-left:20px;">   Color used: 
+				<span v-for="(color, index) in color_list" :style="{ color: color.hex }"
+				v-show = "index<color_used.length">{{color.name}} </span></span>
+				</p>
+				<span>Greedy</span>
+				<button v-on:click='greedy_step'>Step</button>
+				<button v-on:click='greedy_all'>Simulate</button>
+				<button v-on:click='reset_all'>Reset</button><br>
+				<span>Search</span>
+				<button v-on:click='color_step'>Step</button>
+				<button v-on:click='color_all'>Simulate</button>
+				<button v-on:click='reset_all'>Reset</button>
+			</div>
+			<p style="font-size: 30px;line-height: 30px;margin-top: 0;">Color list: 
+			<span v-for="color in color_list" :style="{ color: color.hex }">{{color.name}} </span></p>
+		</div>
+		<script src="sigma.js"></script>
+		<script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+		<script src='./greedy.js'></script>
+	</body>
+</html>
