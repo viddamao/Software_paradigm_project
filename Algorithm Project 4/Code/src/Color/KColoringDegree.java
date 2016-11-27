@@ -85,7 +85,7 @@ public class KColoringDegree {
         frequency[freqLowestColor] += 1;
         coloredCount++;
 
-        for (int w: graph.adjL(vertex)) {
+        for (int w: graph.adjHighDegree(vertex)) {
             if (colored[w] == -1) {
                 toColor(graph, w);
             }
