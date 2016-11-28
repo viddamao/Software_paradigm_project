@@ -40,10 +40,10 @@
 				<button v-on:click='greedy_step'>Step</button>
 				<button v-on:click='greedy_all'>Simulate</button>
 				<button v-on:click='reset_all'>Reset</button><br>
-				<span>Search</span>
+				<!--<span>Search</span>
 				<button v-on:click='color_step'>Step</button>
 				<button v-on:click='color_all'>Simulate</button>
-				<button v-on:click='reset_all'>Reset</button>
+				<button v-on:click='reset_all'>Reset</button>-->
 			</div>
 			<p style="font-size: 30px;line-height: 30px;margin-top: 0;">Color list: 
 			<span v-for="color in color_list" :style="{ color: color.hex }">{{color.name}} </span></p>
