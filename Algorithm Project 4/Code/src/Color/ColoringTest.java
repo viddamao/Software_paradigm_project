@@ -48,6 +48,7 @@ public class ColoringTest {
 
 
         System.out.println();
+        System.out.println("Graph's Degree Standard Deviation: " + graph.degreeStandardDeviation());
         System.out.println("Greedy:" + averageG + " VS Degree: " + averageD);
         System.out.println("Degree/Greedy: " + (float)averageD/(float) averageG);
     }

@@ -72,6 +72,23 @@ public class Graph {
         return bag;
     }
 
+    public double degreeStandardDeviation() {
+        int total = 0;
+        for (int i = 0; i < this.getNumOfVertex(); i++) {
+            total += adj[i].size();
+        }
+        double average = (double) total/this.getNumOfVertex();
+
+        double sd = 0;
+        for (int i = 0; i < this.getNumOfVertex(); i++) {
+            sd += (average - i) * (average - i);
+        }
+
+        sd = Math.sqrt(sd/this.getNumOfVertex());
+
+        return sd;
+    }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
