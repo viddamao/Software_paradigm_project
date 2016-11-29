@@ -15,11 +15,14 @@ public class KColoringDegree {
     private int coloredCount;
     private int[] frequency;
 
+    private int maxNum;
+
     public KColoringDegree(Graph graph, int numberOfColor) {
         this.numberOfColor = numberOfColor;
         this.colored = new int[graph.getNumOfVertex()];
         this.coloredCount = 0;
         this.frequency = new int[numberOfColor];
+        this.maxNum = 0;
 
         // Initiate each vertex's color as -1, no color
         for (int i = 0; i < graph.getNumOfVertex(); i++) {
@@ -82,6 +85,7 @@ public class KColoringDegree {
         if (pq.size() == 0) { return false; }
         int freqLowestColor = pq.min().getIndex();
         colored[vertex] = freqLowestColor;
+        if (freqLowestColor > maxNum) { maxNum = freqLowestColor; }
         frequency[freqLowestColor] += 1;
         coloredCount++;
 
@@ -100,16 +104,20 @@ public class KColoringDegree {
     /***
      *  Show the solution of coloring if it exists.
      */
-    public void getResult(Graph graph) {
+    public boolean getResult(Graph graph) {
         if (toColor(graph, 0)) {
-            System.out.println("Solution exist.");
-            for (int i = 0; i < graph.getNumOfVertex(); i++) {
-                System.out.println("Vertex " + i + "'s color: " + colored[i]);
-            }
+            System.out.println("Degree Solution exist.");
+//            for (int i = 0; i < graph.getNumOfVertex(); i++) {
+//                System.out.println("Vertex " + i + "'s color: " + colored[i]);
+//            }
+            return true;
         } else {
             System.out.println("Solution does not exist.");
+            return false;
         }
     }
+
+    public int getMaxNum() { return maxNum + 1; }
 
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);

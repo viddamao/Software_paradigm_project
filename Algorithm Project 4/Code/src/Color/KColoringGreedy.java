@@ -10,15 +10,18 @@ import java.util.Scanner;
 public class KColoringGreedy {
     private int numOfColor;    // The number of color: 0 as the first type of color, take -1 as no color
     private int[] colored;     // The array contains types of color for each vertex in graph
+    private int maxNum;
 
     public KColoringGreedy(Graph graph, int numOfColor) {
         this.numOfColor = numOfColor;
         this.colored = new int[graph.getNumOfVertex()];
+        this.maxNum = 0;
         // Initiate each vertex's color as -1, no color
         for (int i = 0; i < graph.getNumOfVertex(); i++) {
             colored[i] = -1;
         }
     }
+
 
     /***
      *  To determine if the vertex in the graph can be colored
@@ -43,6 +46,7 @@ public class KColoringGreedy {
         for (int c = 0; c < numOfColor; c++) {
             if (isSafe(graph, vertex, c)) {
                 colored[vertex] = c;
+                if (c > maxNum) { maxNum = c; }
                 if (toColor(graph, vertex + 1)) {
                     return true;
                 }
@@ -58,16 +62,20 @@ public class KColoringGreedy {
     /***
      *  To determine if there exist the solution with number of colors
      */
-    public void getResult(Graph graph) {
+    public boolean getResult(Graph graph) {
         if (!toColor(graph, 0)) {
             System.out.println("Solution does not exist.");
+            return false;
         } else {
-            System.out.println("Solution exist.");
-            for (int i = 0; i < colored.length; i++) {
-                System.out.println("Vertex " + i + "'s color: " + colored[i]);
-            }
+            System.out.println("Greedy Solution exist.");
+//            for (int i = 0; i < colored.length; i++) {
+//                System.out.println("Vertex " + i + "'s color: " + colored[i]);
+//            }
+            return true;
         }
     }
+
+    public int getMaxNum() { return maxNum + 1; }
 
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
