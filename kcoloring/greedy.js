@@ -56,7 +56,7 @@ vm = new Vue({
             }
             
             this.nodes[this.current_index].color = current_color;
-            s.graph.clear(); 
+            s.kill(); 
             g = {
              nodes: this.nodes,
              edges: this.edges
@@ -160,3 +160,4 @@ s.settings({
     edgeColor: 'default',
     defaultEdgeColor: '#999'
 });
+
